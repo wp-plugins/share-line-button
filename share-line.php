@@ -3,7 +3,7 @@
 Plugin Name: Share Line
 Plugin URI:  http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: This plugin can create a Line button to share content to friend, timeline, group
-Version:     1.0
+Version:     1.1
 Author:      Karun Jaraslertsuwan
 Author URI:  http://www.oxygenyoyo.com
 License:     GPL2
@@ -95,13 +95,13 @@ function slb_share_line_setting_image() {
     $options = get_option('slb_share_line_data_array');
     
 
-    $imageStyleValues = [
+    $imageStyleValues = array(
                 1 => '20x20',
                 2 => '30x30',
                 3 => '36x60',
                 4 => '40x40',
                 5 => '78x20'
-    ];
+    );
 
     ?>
     <ul class="button-style-wrap">
@@ -153,29 +153,29 @@ function slb_snap_line_share($content) {
     if( slb_is_mobile() )
     {
         $options = get_option('slb_share_line_data_array');
-        $imageStyleValues = [
+        $imageStyleValues = array(
             1 => '20x20',
             2 => '30x30',
             3 => '36x60',
             4 => '40x40',
             5 => '78x20'
-        ];
+        );
 
-        $widths = [
+        $widths = array(
             1 => 20,
             2 => 30,
             3 => 36,
             4 => 40,
-            5 => 78,
-        ];
+            5 => 78
+        );
 
-        $heights = [
+        $heights = array(
             1 => 20,
             2 => 30,
             3 => 60,
             4 => 40,
-            5 => 20,
-        ];
+            5 => 20
+        );
 
         
         $title = get_the_title();
@@ -186,7 +186,7 @@ function slb_snap_line_share($content) {
         $content .= $lineHtml;    
     }
 
-	return $content;
+    return $content;
 }
 add_filter( 'the_content', 'slb_snap_line_share' );
 
